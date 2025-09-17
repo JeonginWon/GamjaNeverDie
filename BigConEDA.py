@@ -8,4 +8,3 @@ counts = data1["HPSN_MCT_ZCD_NM"].value_counts()
 pd.set_option("display.max_rows", None)  # 모든 행 보이게
 print(counts)
 print(counts)
-print('hello')
