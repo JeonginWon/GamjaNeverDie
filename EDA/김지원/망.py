@@ -1,0 +1,83 @@
+import pandas as pd
+
+# 1. CSV 불러오기
+data1 = pd.read_csv(
+    "C:\\Users\\SSAFY\\Desktop\\bigcon\\GamjaNeverDie\\Big_data_sets\\big_data_set1_f.csv",
+    encoding='cp949'
+)
+
+# 2. 고유 우편번호 추출
+unique_zip_codes = data1['HPSN_MCT_ZCD_NM'].unique()
+unique_zip_codes_list = unique_zip_codes.tolist()
+print("고유 우편번호 리스트:")
+print(unique_zip_codes_list)
+
+# 3. 업종별 가맹점 수 집계
+biz_counts_series = data1['MCT_BRD_NUM'].value_counts()
+biz_counts_df = biz_counts_series.reset_index()
+biz_counts_df.columns = ['업종명', '가맹점_수']
+print("\n업종별 가맹점 수:")
+print(biz_counts_df.head())
+
+# 4. 대분류 분류 함수 정의
+def categorize_biz(업종명):
+    # 한식
+    if ('한식' in 업종명) or (업종명 in [
+        '백반/가정식', '한정식', '기사식당', '한식-육류/고기', '한식-찌개/전골',
+        '한식-국수/만두', '한식-단품요리일반', '한식-해물/생선', '한식-냉면',
+        '한식-국밥/설렁탕', '한식-감자탕', '한식-죽', '한식-두부요리', '한식뷔페'
+    ]):
+        return '한식'
+
+    # 음식점 (중식/양식/일식/분식/치킨/피자/햄버거/도시락 등)
+    elif ('식당' in 업종명) or (업종명 in [
+        '양식', '중식당', '중식-훠궈/마라탕', '중식-딤섬/중식만두',
+        '일식당', '일식-덮밥/돈가스', '일식-우동/소바/라면', '일식-초밥/롤',
+        '일식-샤브샤브', '일식-참치회',
+        '분식', '치킨', '피자', '햄버거', '스테이크',
+        '샌드위치/토스트', '도시락',
+        '동남아/인도음식', '기타세계요리', '구내식당/푸드코트'
+    ]):
+        return '음식점'
+
+    # 카페/디저트
+    elif ('카페' in 업종명) or (업종명 in [
+        '커피전문점', '테이크아웃커피', '테마카페', '카페',
+        '아이스크림/빙수', '베이커리', '베이 커리', '도너츠',
+        '마카롱', '와플/크로플', '차', '주스', '탕후루'
+    ]):
+        return '카페/디저트'
+
+    # 주류/유흥
+    elif ('주점' in 업종명) or (업종명 in [
+        '호프/맥주', '이자카야', '포장마차', '와인바', '와인샵',
+        '룸살롱/단란주점', '일반 유흥주점', '꼬치구이',
+        '요리주점', '민속주점', '주류'
+    ]):
+        return '주류/유흥'
+
+    # 식료품/소매
+    elif ('식료품' in 업종명) or (업종명 in [
+        '축산물', '농산물', '수산물', '청과물', '미곡상',
+        '반찬', '떡/한과', '떡/한과 제조', '유제품',
+        '식품 제조', '인삼제품', '건강식품', '건강원',
+        '건어물', '담배'
+    ]):
+        return '식료품/소매'
+
+    # 기타
+    else:
+        return '기타'
+
+# 5. 대분류 컬럼 추가
+biz_counts_df['대분류'] = biz_counts_df['업종명'].apply(categorize_biz)
+
+# 6. 대분류별 가맹점 수 합계
+grouped_df = (
+    biz_counts_df.groupby('대분류', as_index=False)['가맹점_수']
+    .sum()
+    .sort_values(by='가맹점_수', ascending=False)
+)
+
+print("\n대분류별 가맹점 수 합계:")
+print(grouped_df)
