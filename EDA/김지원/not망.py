@@ -1,23 +1,15 @@
 import pandas as pd
 
 # 1. CSV 불러오기
-data1 = pd.read_csv(
-    "C:\\Users\\SSAFY\\Desktop\\bigcon\\GamjaNeverDie\\Big_data_sets\\big_data_set1_f.csv",
-    encoding='cp949'
-)
+data1 = pd.read_csv("C:\\Users\\lisaj\\OneDrive\\바탕 화면\\big_data_set1_f.csv", encoding='cp949')
 
-# 2. 고유 우편번호 추출
-unique_zip_codes = data1['HPSN_MCT_ZCD_NM'].unique()
-unique_zip_codes_list = unique_zip_codes.tolist()
-print("고유 우편번호 리스트:")
-print(unique_zip_codes_list)
 
 # 3. 업종별 가맹점 수 집계
-biz_counts_series = data1['MCT_BRD_NUM'].value_counts()
+biz_counts_series = data1['HPSN_MCT_ZCD_NM'].value_counts()
+
 biz_counts_df = biz_counts_series.reset_index()
 biz_counts_df.columns = ['업종명', '가맹점_수']
-print("\n업종별 가맹점 수:")
-print(biz_counts_df.head())
+
 
 # 4. 대분류 분류 함수 정의
 def categorize_biz(업종명):
