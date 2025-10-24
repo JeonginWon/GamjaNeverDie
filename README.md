@@ -517,8 +517,22 @@ C-index: 0.6498
 | 5 | D749124593 | 0.806 |
 
 # 시각화
+<img width="285" height="173" alt="그림1" src="https://github.com/user-attachments/assets/adeb018a-8fc1-40c9-8feb-896a9c7f32a7" />
 
-*streamlit완성하면 넣고 아니면 뺄듯. 다른 시각화툴은 시간이 없음. 
+<img width="289" height="179" alt="그림2" src="https://github.com/user-attachments/assets/256d578a-5a50-4700-b35c-9ef5dd330f2e" />
+
+<img width="457" height="287" alt="그림3" src="https://github.com/user-attachments/assets/c2a0cb7a-311f-4a02-8840-1a9a5c03c41e" />
+
+<img width="576" height="230" alt="그림4" src="https://github.com/user-attachments/assets/ff88bbb6-bdce-4995-b9c7-eb127ec094af" />
+
+<img width="304" height="250" alt="그림5" src="https://github.com/user-attachments/assets/28b97846-6d8f-4459-8e95-c0e6e91b53f4" />
+
+<img width="296" height="231" alt="그림6" src="https://github.com/user-attachments/assets/94df1b5c-cda2-4a27-8054-5c4e3f3bdc63" />
+
+<img width="296" height="235" alt="그림7" src="https://github.com/user-attachments/assets/3f574ae4-1581-44e9-bdb7-bc6054b5156a" />
+
+
+*streamlit
 
 # 인사이트
 
