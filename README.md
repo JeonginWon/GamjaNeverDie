@@ -762,7 +762,7 @@ Retail Industry
 서울시 25개 자치구를 중심으로
 장 제 훈*
 
-＊ 조선대학교 휴먼융합서비스학부 교수(Professor,ChosunUniv.,Email: [jehun@chosun.ac.kr](mailto:jehun@chosun.ac.kr))
+＊ 조선대학교 휴먼융합서비스학부 교수(Professor,ChosunUniv.)
 
 ## 부록: 기술 스택 및 데이터 명세
 
@@ -771,9 +771,8 @@ Retail Industry
 | **데이터 처리** | Python 3.9, Pandas, NumPy | 데이터 전처리 및 피처 엔지니어링 |
 | **모델링** | Scikit-learn, Lifelines, XGBoost | Cox, 로지스틱, 랜덤포레스트 모델 |
 | **시각화** | Matplotlib, Seaborn, Plotly | 분석 결과 시각화 |
-| **대시보드** | Streamlit, Dash | 실시간 모니터링 UI |
-| **배포** | Docker, AWS SageMaker | 모델 서빙 및 스케일링 |
-| **데이터베이스** | PostgreSQL, Redis | 데이터 저장 및 캐싱 |
+| **대시보드** | Streamlit | 실시간 모니터링 UI |
+
 
 ### Project Link
 
