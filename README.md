@@ -680,7 +680,5 @@ Retail Industry
 ### Project Link
 
 https://github.com/JeonginWon/GamjaNeverDie/tree/main
-
-https://drive.google.com/drive/folders/1vGIDvQ_ONlK1swk0WTI9U33_yOjyVCzY
-
-https://mary010323.atlassian.net/jira/software/projects/KAN/boards/1
+	
+https://id.atlassian.com/invite/p/jira-software?id=m4if_I-UQJe-wwZGpKl6RQ
